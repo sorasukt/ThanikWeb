@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบทดสอบเลือกคณะ</title>
+    <style>
+        /* CSS สำหรับพื้นหลังสีเหลืองของข้อความผลลัพธ์ */
+        #resultText {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>แบบทดสอบเลือกคณะ</h1>
+    <form id="quizForm">
+        <!-- คำถามที่ 1 -->
+        <h2>คำถาม 1: คุณสนใจการทำงานในลักษณะใดมากที่สุด?</h2>
+        <label><input type="radio" name="q1" value="1"> การแก้ปัญหาด้านเทคนิคและออกแบบระบบ</label><br>
+        <label><input type="radio" name="q1" value="2"> การดูแลรักษาคนไข้หรือสัตว์ที่เจ็บป่วย</label><br>
+        <label><input type="radio" name="q1" value="3"> การทำงานที่เกี่ยวข้องกับการบริหาร การเงิน หรือการตลาด</label><br>
+        <label><input type="radio" name="q1" value="4"> การศึกษาพฤติกรรมมนุษย์ ประวัติศาสตร์ หรือวัฒนธรรม</label><br>
+        <label><input type="radio" name="q1" value="5"> การทดลองในห้องแล็บเพื่อค้นพบสิ่งใหม่ทางวิทยาศาสตร์</label><br>
+
+        <!-- คำถามที่ 2 -->
+        <h2>คำถาม 2: คุณชอบทำงานในสถานการณ์แบบไหน?</h2>
+        <label><input type="radio" name="q2" value="1"> สถานการณ์ที่ต้องใช้ความคิดสร้างสรรค์เพื่อออกแบบงานศิลป์หรือสื่อ</label><br>
+        <label><input type="radio" name="q2" value="2"> สถานการณ์ที่ต้องช่วยเหลือผู้อื่นโดยตรง</label><br>
+        <label><input type="radio" name="q2" value="3"> สถานการณ์ที่ต้องวิเคราะห์ข้อมูลตัวเลขหรือผลกระทบทางเศรษฐกิจ</label><br>
+        <label><input type="radio" name="q2" value="4"> สถานการณ์ที่ต้องเผชิญหน้ากับความท้าทายทางกฎหมายหรือสังคม</label><br>
+        <label><input type="radio" name="q2" value="5"> สถานการณ์ที่เกี่ยวข้องกับการทำงานในฟาร์มหรือพัฒนาผลผลิต</label><br>
+
+        <!-- คำถามที่ 3 -->
+        <h2>คำถาม 3: หากคุณต้องเรียนรู้เรื่องใหม่ คุณชอบเนื้อหาแบบใดมากที่สุด?</h2>
+        <label><input type="radio" name="q3" value="1"> วิทยาศาสตร์ เทคโนโลยี หรือการคำนวณ</label><br>
+        <label><input type="radio" name="q3" value="2"> ประวัติศาสตร์ วัฒนธรรม หรือภาษา</label><br>
+        <label><input type="radio" name="q3" value="3"> ทฤษฎีเศรษฐศาสตร์ การบริหาร หรือการจัดการ</label><br>
+        <label><input type="radio" name="q3" value="4"> การออกแบบ การเขียน หรือการแสดง</label><br>
+        <label><input type="radio" name="q3" value="5"> การดูแลชีวิตคนหรือสัตว์</label><br>
+
+        <!-- คำถามที่ 4 -->
+        <h2>คำถาม 4: หากคุณมีเวลาว่างในวันหยุดสุดสัปดาห์ คุณอยากทำกิจกรรมใดมากที่สุด?</h2>
+        <label><input type="radio" name="q4" value="1"> อ่านหนังสือเกี่ยวกับเทคโนโลยีหรือนวัตกรรม</label><br>
+        <label><input type="radio" name="q4" value="2"> ไปออกกำลังกายหรือดูแลสุขภาพของตัวเอง</label><br>
+        <label><input type="radio" name="q4" value="3"> เข้าร่วมกิจกรรมสร้างสรรค์ เช่น วาดภาพหรือออกแบบ</label><br>
+        <label><input type="radio" name="q4" value="4"> เข้าร่วมกิจกรรมอาสาสมัครช่วยเหลือสังคม</label><br>
+        <label><input type="radio" name="q4" value="5"> ทำงานพิเศษหรือขายของเพื่อหารายได้</label><br>
+
+        <!-- คำถามที่ 5 -->
+        <h2>คำถาม 5: หากคุณสามารถเลือกทำโปรเจกต์ในโรงเรียนได้ 1 โปรเจกต์ คุณจะเลือกทำโปรเจกต์แบบใด?</h2>
+        <label><input type="radio" name="q5" value="1"> การออกแบบและสร้างหุ่นยนต์หรือโมเดล 3 มิติ</label><br>
+        <label><input type="radio" name="q5" value="2"> การวิจัยเกี่ยวกับการรักษาโรคหรือสุขภาพ</label><br>
+        <label><input type="radio" name="q5" value="3"> การวางแผนและจัดการงานกิจกรรมขนาดใหญ่</label><br>
+        <label><input type="radio" name="q5" value="4"> การเขียนบทความหรือทำการศึกษาเชิงลึกเกี่ยวกับสังคม</label><br>
+        <label><input type="radio" name="q5" value="5"> การทดลองเกี่ยวกับพืช สัตว์ หรือทรัพยากรธรรมชาติ</label><br>
+
+        <button type="submit">ดูผลลัพธ์</button>
+    </form>
+
+    <div id="result" style="display:none;">
+        <h2>ผลลัพธ์ที่เหมาะสมกับคุณ</h2>
+        <p id="resultText"></p>
+    </div>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // เก็บคำตอบและคำนวณผลลัพธ์
+            const scores = {
+                q1: { /* ... */ },
+                q2: { /* ... */ },
+                q3: { /* ... */ },
+                q4: { /* ... */ },
+                q5: { /* ... */ },
+            };
+
+            const results = [];
+            const totalAnswers = [
+                document.querySelector('input[name="q1"]:checked'),
+                document.querySelector('input[name="q2"]:checked'),
+                document.querySelector('input[name="q3"]:checked'),
+                document.querySelector('input[name="q4"]:checked'),
+                document.querySelector('input[name="q5"]:checked'),
+            ];
+
+            // ประมวลผลคำตอบ
+            totalAnswers.forEach((answer, index) => {
+                if (answer) {
+                    results.push(scores[`q${index + 1}`][answer.value]);
+                }
+            });
+
+            // แสดงผลลัพธ์
+            const flatResults = results.flat();
+            const uniqueResults = [...new Set(flatResults)].slice(0, 3);
+            document.getElementById("resultText").innerHTML =
+                "ผลลัพธ์ที่เหมาะสมกับคุณคือ: " + uniqueResults.join(', ');
+            document.getElementById("result").style.display = "block";
+        });
+    </script>
+</body>
+</html>
