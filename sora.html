@@ -4,96 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แบบทดสอบเลือกคณะ</title>
-
-    <!-- ฟอนต์ Noto Sans Thai จาก Google Fonts -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Noto Sans Thai', sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 2.5rem;
-            color: #1a73e8;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        form {
-            width: 80%;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        button {
-            background-color: #1a73e8;
-            color: white;
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #155ab5;
-        }
-
-        #result {
-            width: 80%;
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-            background-color: #fff4e1;
-            border: 2px solid #f7b731;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        #resultText {
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-    </style>
 </head>
 <body>
     <h1>แบบทดสอบเลือกคณะ</h1>
     <form id="quizForm">
-        <!-- คำถามที่ 1 -->
+        <!-- คำถาม 1 -->
         <h2>คำถาม 1: คุณสนใจการทำงานในลักษณะใดมากที่สุด?</h2>
         <label><input type="radio" name="q1" value="1"> การแก้ปัญหาด้านเทคนิคและออกแบบระบบ</label>
         <label><input type="radio" name="q1" value="2"> การดูแลรักษาคนไข้หรือสัตว์ที่เจ็บป่วย</label>
@@ -101,59 +20,46 @@
         <label><input type="radio" name="q1" value="4"> การศึกษาพฤติกรรมมนุษย์ ประวัติศาสตร์ หรือวัฒนธรรม</label>
         <label><input type="radio" name="q1" value="5"> การทดลองในห้องแล็บเพื่อค้นพบสิ่งใหม่ทางวิทยาศาสตร์</label>
 
-        <!-- คำถามอื่นๆ เหมือนเดิม... -->
+        <!-- คำถาม 2 -->
+        <h2>คำถาม 2: คุณชอบทำงานในสถานการณ์แบบไหน?</h2>
+        <label><input type="radio" name="q2" value="1"> สถานการณ์ที่ต้องใช้ความคิดสร้างสรรค์เพื่อออกแบบงานศิลป์หรือสื่อ</label>
+        <label><input type="radio" name="q2" value="2"> สถานการณ์ที่ต้องช่วยเหลือผู้อื่นโดยตรง</label>
+        <label><input type="radio" name="q2" value="3"> สถานการณ์ที่ต้องวิเคราะห์ข้อมูลตัวเลขหรือผลกระทบทางเศรษฐกิจ</label>
+        <label><input type="radio" name="q2" value="4"> สถานการณ์ที่ต้องเผชิญหน้ากับความท้าทายทางกฎหมายหรือสังคม</label>
+        <label><input type="radio" name="q2" value="5"> สถานการณ์ที่เกี่ยวข้องกับการทำงานในฟาร์มหรือพัฒนาผลผลิต</label>
+
+        <!-- คำถาม 3 -->
+        <h2>คำถาม 3: หากคุณต้องเรียนรู้เรื่องใหม่ คุณชอบเนื้อหาแบบใดมากที่สุด?</h2>
+        <label><input type="radio" name="q3" value="1"> วิทยาศาสตร์ เทคโนโลยี หรือการคำนวณ</label>
+        <label><input type="radio" name="q3" value="2"> ประวัติศาสตร์ วัฒนธรรม หรือภาษา</label>
+        <label><input type="radio" name="q3" value="3"> ทฤษฎีเศรษฐศาสตร์ การบริหาร หรือการจัดการ</label>
+        <label><input type="radio" name="q3" value="4"> การออกแบบ การเขียน หรือการแสดง</label>
+        <label><input type="radio" name="q3" value="5"> การดูแลชีวิตคนหรือสัตว์</label>
+
+        <!-- คำถาม 4 -->
+        <h2>คำถาม 4: หากคุณมีเวลาว่างในวันหยุดสุดสัปดาห์ คุณอยากทำกิจกรรมใดมากที่สุด?</h2>
+        <label><input type="radio" name="q4" value="1"> อ่านหนังสือเกี่ยวกับเทคโนโลยีหรือนวัตกรรม</label>
+        <label><input type="radio" name="q4" value="2"> ไปออกกำลังกายหรือดูแลสุขภาพของตัวเอง</label>
+        <label><input type="radio" name="q4" value="3"> เข้าร่วมกิจกรรมสร้างสรรค์ เช่น วาดภาพหรือออกแบบ</label>
+        <label><input type="radio" name="q4" value="4"> เข้าร่วมกิจกรรมอาสาสมัครช่วยเหลือสังคม</label>
+        <label><input type="radio" name="q4" value="5"> ทำงานพิเศษหรือขายของเพื่อหารายได้</label>
+
+        <!-- คำถาม 5 -->
+        <h2>คำถาม 5: หากคุณสามารถเลือกทำโปรเจกต์ในโรงเรียนได้ 1 โปรเจกต์ คุณจะเลือกทำโปรเจกต์แบบใด?</h2>
+        <label><input type="radio" name="q5" value="1"> การออกแบบและสร้างหุ่นยนต์หรือโมเดล 3 มิติ</label>
+        <label><input type="radio" name="q5" value="2"> การวิจัยเกี่ยวกับการรักษาโรคหรือสุขภาพ</label>
+        <label><input type="radio" name="q5" value="3"> การวางแผนและจัดการงานกิจกรรมขนาดใหญ่</label>
+        <label><input type="radio" name="q5" value="4"> การเขียนบทความหรือทำการศึกษาเชิงลึกเกี่ยวกับสังคม</label>
+        <label><input type="radio" name="q5" value="5"> การทดลองเกี่ยวกับพืช สัตว์ หรือทรัพยากรธรรมชาติ</label>
 
         <button type="submit">ดูผลลัพธ์</button>
     </form>
 
-    <div id="result">
+    <div id="result" style="display:none;">
         <h2>ผลลัพธ์ที่เหมาะสมกับคุณ</h2>
         <p id="resultText"></p>
     </div>
 
-    <script>
-        const scores = {
-            q1: {1: ['คณะวิศวกรรมศาสตร์'], 2: ['คณะแพทยศาสตร์'], 3: ['คณะบริหารธุรกิจ'], 4: ['คณะมนุษยศาสตร์'], 5: ['คณะวิทยาศาสตร์']},
-            q2: {1: ['คณะศิลปกรรมศาสตร์'], 2: ['คณะแพทยศาสตร์'], 3: ['คณะเศรษฐศาสตร์'], 4: ['คณะนิติศาสตร์'], 5: ['คณะเกษตรศาสตร์']},
-            q3: {1: ['คณะวิศวกรรมศาสตร์'], 2: ['คณะมนุษยศาสตร์'], 3: ['คณะบริหารธุรกิจ'], 4: ['คณะศิลปกรรมศาสตร์'], 5: ['คณะแพทยศาสตร์']},
-            q4: {1: ['คณะวิศวกรรมศาสตร์'], 2: ['คณะแพทยศาสตร์'], 3: ['คณะศิลปกรรมศาสตร์'], 4: ['คณะศึกษาศาสตร์'], 5: ['คณะบริหารธุรกิจ']},
-            q5: {1: ['คณะวิศวกรรมศาสตร์'], 2: ['คณะแพทยศาสตร์'], 3: ['คณะบริหารธุรกิจ'], 4: ['คณะมนุษยศาสตร์'], 5: ['คณะเกษตรศาสตร์']}
-        };
-
-        document.getElementById("quizForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            let results = [];
-            let totalAnswers = [
-                document.querySelector('input[name="q1"]:checked'),
-                document.querySelector('input[name="q2"]:checked'),
-                document.querySelector('input[name="q3"]:checked'),
-                document.querySelector('input[name="q4"]:checked'),
-                document.querySelector('input[name="q5"]:checked')
-            ];
-
-            // ตรวจสอบคำตอบทั้งหมด
-            for (let i = 0; i < totalAnswers.length; i++) {
-                if (!totalAnswers[i]) {
-                    alert(`กรุณาตอบคำถามข้อที่ ${i + 1}`);
-                    return; // หยุดการประมวลผลถ้ายังตอบไม่ครบ
-                } else {
-                    results.push(scores[`q${i + 1}`][totalAnswers[i].value]);
-                }
-            }
-
-            // รวมผลลัพธ์
-            let flatResults = results.flat();
-            let uniqueResults = [...new Set(flatResults)].slice(0, 3);
-
-            // แสดงผลลัพธ์
-            document.getElementById("resultText").innerHTML = 
-                uniqueResults.length > 0 
-                ? `ผลลัพธ์ที่เหมาะสมกับคุณคือ: ${uniqueResults.join(', ')}`
-                : "ไม่พบคณะที่เหมาะสม กรุณาลองใหม่อีกครั้ง";
-            
-            document.getElementById("result").style.display = "block";
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
