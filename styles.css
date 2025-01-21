@@ -1,76 +1,44 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const quizForm = document.getElementById("quizForm");
+/* ลบเส้นใต้คำถาม */
+.question-title {
+    font-weight: bold;
+    margin: 20px 0;
+}
 
-    quizForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+/* Pop-up สไตล์ */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-        // ตรวจสอบว่าทุกคำถามมีคำตอบ
-        const totalQuestions = 5; // จำนวนคำถามทั้งหมด
-        const formData = new FormData(quizForm);
-        let answeredQuestions = 0;
+.popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
 
-        // เช็กจำนวนคำถามที่ถูกตอบ
-        for (let [key, value] of formData.entries()) {
-            if (value) {
-                answeredQuestions++;
-            }
-        }
+.popup button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        // ถ้าตอบไม่ครบทุกคำถาม
-        if (answeredQuestions < totalQuestions) {
-            alert("กรุณาตอบคำถามให้ครบทุกข้อก่อนส่งแบบฟอร์ม!");
-            return;
-        }
-
-        // เก็บคะแนนของแต่ละคำตอบ
-        let scores = [0, 0, 0, 0, 0];
-        for (let [key, value] of formData.entries()) {
-            scores[parseInt(value) - 1]++;
-        }
-
-        // หา index ของคำตอบที่ได้คะแนนสูงสุด
-        const maxScoreIndex = scores.indexOf(Math.max(...scores));
-        const resultText = getResultText(maxScoreIndex);
-
-        // แสดงผลลัพธ์ใน Pop-up
-        showPopup(resultText);
-    });
-
-    // ฟังก์ชันคืนข้อความผลลัพธ์ตามคะแนนสูงสุด
-    function getResultText(index) {
-        const results = [
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิศวกรรมศาสตร์หรือเทคโนโลยี!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับการแพทย์หรือสุขภาพ!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับบริหารธุรกิจหรือเศรษฐศาสตร์!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับสังคมศาสตร์หรือมนุษยศาสตร์!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิทยาศาสตร์ธรรมชาติหรือเกษตรศาสตร์!"
-        ];
-        return results[index];
-    }
-
-    // ฟังก์ชันแสดง Pop-up
-    function showPopup(message) {
-        // สร้างองค์ประกอบของ Pop-up
-        const popupContainer = document.createElement("div");
-        popupContainer.className = "popup-container";
-
-        const popup = document.createElement("div");
-        popup.className = "popup";
-
-        const text = document.createElement("p");
-        text.textContent = message;
-
-        const closeButton = document.createElement("button");
-        closeButton.textContent = "ปิด";
-        closeButton.addEventListener("click", function () {
-            popupContainer.remove();
-        });
-
-        popup.appendChild(text);
-        popup.appendChild(closeButton);
-        popupContainer.appendChild(popup);
-
-        // เพิ่ม Pop-up ไปใน body
-        document.body.appendChild(popupContainer);
-    }
-});
+.popup button:hover {
+    background-color: #0056b3;
+}
