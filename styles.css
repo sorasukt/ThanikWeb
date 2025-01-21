@@ -1,10 +1,10 @@
-/* ตั้งค่าฟอนต์ */
+/* ตั้งค่าฟอนต์และพื้นหลัง */
 body {
     font-family: "Noto Sans Thai", sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    background-color: #aa4a44; /* สีแดงอิฐ */
+    color: #fff; /* ตัวหนังสือสีขาว */
 }
 
 .container {
@@ -14,10 +14,11 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #333;
 }
 
 h1, h2 {
-    text-align: center;
+    text-align: left;
     color: #444;
 }
 
@@ -44,7 +45,7 @@ button {
     padding: 10px 0;
     font-size: 1.2rem;
     color: #fff;
-    background-color: #4caf50;
+    background-color: #aa4a44;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -52,7 +53,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #8e3b38;
 }
 
 #errorPopup {
@@ -74,12 +75,12 @@ button:hover {
     margin-top: 10px;
     padding: 8px 16px;
     color: #fff;
-    background-color: #f44336;
+    background-color: #aa4a44;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #errorPopup button:hover {
-    background-color: #e53935;
+    background-color: #8e3b38;
 }
