@@ -4,11 +4,26 @@ document.addEventListener("DOMContentLoaded", function () {
     quizForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
+        // ตรวจสอบว่าทุกคำถามมีคำตอบ
+        const totalQuestions = 5; // จำนวนคำถามทั้งหมด
+        const formData = new FormData(quizForm);
+        let answeredQuestions = 0;
+
+        // เช็กจำนวนคำถามที่ถูกตอบ
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                answeredQuestions++;
+            }
+        }
+
+        // ถ้าตอบไม่ครบทุกคำถาม
+        if (answeredQuestions < totalQuestions) {
+            alert("กรุณาตอบคำถามให้ครบทุกข้อก่อนส่งแบบฟอร์ม!");
+            return;
+        }
+
         // เก็บคะแนนของแต่ละคำตอบ
         let scores = [0, 0, 0, 0, 0];
-
-        // ดึงค่าคำตอบที่เลือกไว้
-        const formData = new FormData(quizForm);
         for (let [key, value] of formData.entries()) {
             scores[parseInt(value) - 1]++;
         }
