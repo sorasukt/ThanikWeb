@@ -2,22 +2,30 @@ const form = document.getElementById('quizForm');
 const resultText = document.getElementById('resultText');
 const errorPopup = document.getElementById('errorPopup');
 
-// ตรวจสอบว่ามีคำถามที่ยังไม่ได้ตอบ
-form.addEventListener('submit', function (e) {
-    e.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อส่งแบบฟอร์ม
+// ฟังก์ชันที่เช็คคำถามทั้งหมดถูกตอบหรือไม่
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(form);
+    let allAnswered = true;
 
-    const radioButtons = form.querySelectorAll('input[type="radio"]:checked');
-    
-    if (radioButtons.length === 5) {  // ตรวจสอบว่าผู้ใช้เลือกทุกคำถาม
-        // แสดงผลลัพธ์
-        resultText.textContent = 'ขอบคุณที่ตอบคำถามทั้งหมด! คุณเหมาะสมกับคณะที่คุณเลือกจากคำถามเหล่านี้!';
+    // เช็คว่าทุกคำถามมีการตอบหรือไม่
+    for (let i = 1; i <= 5; i++) {
+        if (!formData.has(`q${i}`)) {
+            allAnswered = false;
+            break;
+        }
+    }
+
+    if (allAnswered) {
+        // ประมวลผลผลลัพธ์
+        resultText.innerHTML = 'คุณได้เลือกครบทั้งหมดแล้ว! ผลลัพธ์จะปรากฏที่นี่';
     } else {
-        // แสดงป็อปอัพให้กรุณาตอบทุกคำถาม
+        // แสดง popup ข้อผิดพลาด
         errorPopup.style.display = 'block';
     }
 });
 
-// ปิดป็อปอัพ
+// ฟังก์ชันปิด popup
 function closePopup() {
     errorPopup.style.display = 'none';
 }
