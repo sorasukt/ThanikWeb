@@ -4,39 +4,32 @@ document.addEventListener("DOMContentLoaded", function () {
     quizForm.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        // ตรวจสอบว่าทุกคำถามมีคำตอบ
         const totalQuestions = 5; // จำนวนคำถามทั้งหมด
         const formData = new FormData(quizForm);
         let answeredQuestions = 0;
 
-        // เช็กจำนวนคำถามที่ถูกตอบ
         for (let [key, value] of formData.entries()) {
             if (value) {
                 answeredQuestions++;
             }
         }
 
-        // ถ้าตอบไม่ครบทุกคำถาม
         if (answeredQuestions < totalQuestions) {
             alert("กรุณาตอบคำถามให้ครบทุกข้อก่อนส่งแบบฟอร์ม!");
             return;
         }
 
-        // เก็บคะแนนของแต่ละคำตอบ
         let scores = [0, 0, 0, 0, 0];
         for (let [key, value] of formData.entries()) {
             scores[parseInt(value) - 1]++;
         }
 
-        // หา index ของคำตอบที่ได้คะแนนสูงสุด
         const maxScoreIndex = scores.indexOf(Math.max(...scores));
         const resultText = getResultText(maxScoreIndex);
 
-        // แสดงผลลัพธ์ใน Pop-up
         showPopup(resultText);
     });
 
-    // ฟังก์ชันคืนข้อความผลลัพธ์ตามคะแนนสูงสุด
     function getResultText(index) {
         const results = [
             "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิศวกรรมศาสตร์หรือเทคโนโลยี!",
@@ -48,9 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return results[index];
     }
 
-    // ฟังก์ชันแสดง Pop-up
     function showPopup(message) {
-        // สร้างองค์ประกอบของ Pop-up
         const popupContainer = document.createElement("div");
         popupContainer.className = "popup-container";
 
@@ -70,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
         popup.appendChild(closeButton);
         popupContainer.appendChild(popup);
 
-        // เพิ่ม Pop-up ไปใน body
         document.body.appendChild(popupContainer);
     }
 });
