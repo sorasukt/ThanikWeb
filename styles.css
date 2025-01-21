@@ -1,110 +1,76 @@
-body {
-    font-family: 'Noto Sans Thai', sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
-}
+document.addEventListener("DOMContentLoaded", function () {
+    const quizForm = document.getElementById("quizForm");
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    quizForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-h1 {
-    text-align: center;
-    color: #333;
-}
+        // ตรวจสอบว่าทุกคำถามมีคำตอบ
+        const totalQuestions = 5; // จำนวนคำถามทั้งหมด
+        const formData = new FormData(quizForm);
+        let answeredQuestions = 0;
 
-h2 {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 5px;
-    color: #555;
-}
+        // เช็กจำนวนคำถามที่ถูกตอบ
+        for (let [key, value] of formData.entries()) {
+            if (value) {
+                answeredQuestions++;
+            }
+        }
 
-.question {
-    margin-bottom: 20px;
-}
+        // ถ้าตอบไม่ครบทุกคำถาม
+        if (answeredQuestions < totalQuestions) {
+            alert("กรุณาตอบคำถามให้ครบทุกข้อก่อนส่งแบบฟอร์ม!");
+            return;
+        }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #444;
-}
+        // เก็บคะแนนของแต่ละคำตอบ
+        let scores = [0, 0, 0, 0, 0];
+        for (let [key, value] of formData.entries()) {
+            scores[parseInt(value) - 1]++;
+        }
 
-.submit-btn {
-    display: block;
-    margin: 20px auto 0;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        // หา index ของคำตอบที่ได้คะแนนสูงสุด
+        const maxScoreIndex = scores.indexOf(Math.max(...scores));
+        const resultText = getResultText(maxScoreIndex);
 
-.submit-btn:hover {
-    background-color: #45a049;
-}
+        // แสดงผลลัพธ์ใน Pop-up
+        showPopup(resultText);
+    });
 
-/* Popup container */
-.popup-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-}
-
-/* Popup */
-.popup {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    width: 300px;
-    animation: fadeIn 0.3s ease-in-out;
-}
-
-.popup p {
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: #333;
-}
-
-.popup button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.popup button:hover {
-    background-color: #45a049;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.8);
+    // ฟังก์ชันคืนข้อความผลลัพธ์ตามคะแนนสูงสุด
+    function getResultText(index) {
+        const results = [
+            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิศวกรรมศาสตร์หรือเทคโนโลยี!",
+            "คุณเหมาะกับคณะที่เกี่ยวข้องกับการแพทย์หรือสุขภาพ!",
+            "คุณเหมาะกับคณะที่เกี่ยวข้องกับบริหารธุรกิจหรือเศรษฐศาสตร์!",
+            "คุณเหมาะกับคณะที่เกี่ยวข้องกับสังคมศาสตร์หรือมนุษยศาสตร์!",
+            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิทยาศาสตร์ธรรมชาติหรือเกษตรศาสตร์!"
+        ];
+        return results[index];
     }
-    to {
-        opacity: 1;
-        transform: scale(1);
+
+    // ฟังก์ชันแสดง Pop-up
+    function showPopup(message) {
+        // สร้างองค์ประกอบของ Pop-up
+        const popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container";
+
+        const popup = document.createElement("div");
+        popup.className = "popup";
+
+        const text = document.createElement("p");
+        text.textContent = message;
+
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "ปิด";
+        closeButton.addEventListener("click", function () {
+            popupContainer.remove();
+        });
+
+        popup.appendChild(text);
+        popup.appendChild(closeButton);
+        popupContainer.appendChild(popup);
+
+        // เพิ่ม Pop-up ไปใน body
+        document.body.appendChild(popupContainer);
     }
-}
+});
