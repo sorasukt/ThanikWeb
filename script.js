@@ -1,60 +1,23 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const quizForm = document.getElementById("quizForm");
+const form = document.getElementById('quizForm');
+const resultText = document.getElementById('resultText');
+const errorPopup = document.getElementById('errorPopup');
 
-    quizForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+// ตรวจสอบว่ามีคำถามที่ยังไม่ได้ตอบ
+form.addEventListener('submit', function (e) {
+    e.preventDefault(); // ป้องกันการรีเฟรชหน้าเมื่อส่งแบบฟอร์ม
 
-        const totalQuestions = 5; // จำนวนคำถามทั้งหมด
-        const formData = new FormData(quizForm);
-        const answers = Array.from(formData.keys());
-
-        if (answers.length < totalQuestions) {
-            showPopup("กรุณาตอบทุกคำถามก่อนส่งแบบฟอร์ม!");
-            return;
-        }
-
-        let scores = [0, 0, 0, 0, 0];
-        for (let [key, value] of formData.entries()) {
-            scores[parseInt(value) - 1]++;
-        }
-
-        const maxScoreIndex = scores.indexOf(Math.max(...scores));
-        const resultText = getResultText(maxScoreIndex);
-
-        showPopup(resultText);
-    });
-
-    function getResultText(index) {
-        const results = [
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิศวกรรมศาสตร์หรือเทคโนโลยี!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับการแพทย์หรือสุขภาพ!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับบริหารธุรกิจหรือเศรษฐศาสตร์!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับสังคมศาสตร์หรือมนุษยศาสตร์!",
-            "คุณเหมาะกับคณะที่เกี่ยวข้องกับวิทยาศาสตร์ธรรมชาติหรือเกษตรศาสตร์!"
-        ];
-        return results[index];
-    }
-
-    function showPopup(message) {
-        const popupContainer = document.createElement("div");
-        popupContainer.className = "popup-container";
-
-        const popup = document.createElement("div");
-        popup.className = "popup";
-
-        const text = document.createElement("p");
-        text.textContent = message;
-
-        const closeButton = document.createElement("button");
-        closeButton.textContent = "ปิด";
-        closeButton.addEventListener("click", function () {
-            popupContainer.remove();
-        });
-
-        popup.appendChild(text);
-        popup.appendChild(closeButton);
-        popupContainer.appendChild(popup);
-
-        document.body.appendChild(popupContainer);
+    const radioButtons = form.querySelectorAll('input[type="radio"]:checked');
+    
+    if (radioButtons.length === 5) {  // ตรวจสอบว่าผู้ใช้เลือกทุกคำถาม
+        // แสดงผลลัพธ์
+        resultText.textContent = 'ขอบคุณที่ตอบคำถามทั้งหมด! คุณเหมาะสมกับคณะที่คุณเลือกจากคำถามเหล่านี้!';
+    } else {
+        // แสดงป็อปอัพให้กรุณาตอบทุกคำถาม
+        errorPopup.style.display = 'block';
     }
 });
+
+// ปิดป็อปอัพ
+function closePopup() {
+    errorPopup.style.display = 'none';
+}
