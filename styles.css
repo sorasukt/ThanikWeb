@@ -1,6 +1,6 @@
 body {
     font-family: 'Noto Sans Thai', sans-serif;
-    background-color: #f8f9fa;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 20px;
 }
@@ -8,10 +8,10 @@ body {
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: #ffffff;
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -26,7 +26,7 @@ h1 {
 
 .question-title {
     font-size: 18px;
-    color: #555;
+    color: #444;
     margin-bottom: 10px;
 }
 
@@ -34,8 +34,8 @@ button[type="submit"] {
     display: block;
     width: 100%;
     padding: 10px;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: 16px;
+    color: #fff;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
@@ -61,19 +61,23 @@ button[type="submit"]:hover {
 }
 
 .popup {
-    background: #ffffff;
+    background: #fff;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 400px;
 }
 
+.popup p {
+    margin-bottom: 15px;
+}
+
 .popup button {
-    margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    color: #ffffff;
+    color: #fff;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
