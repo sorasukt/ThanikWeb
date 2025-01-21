@@ -1,8 +1,9 @@
+// ดักจับการส่งฟอร์ม
 const form = document.getElementById('quizForm');
-const resultText = document.getElementById('resultText');
 const errorPopup = document.getElementById('errorPopup');
+const resultText = document.getElementById('resultText');
 
-// ฟังก์ชันที่เช็คคำถามทั้งหมดถูกตอบหรือไม่
+// เมื่อกดส่งฟอร์ม
 form.addEventListener('submit', function(event) {
     event.preventDefault();
     const formData = new FormData(form);
