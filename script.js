@@ -6,16 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const totalQuestions = 5; // จำนวนคำถามทั้งหมด
         const formData = new FormData(quizForm);
-        let answeredQuestions = 0;
+        const answers = Array.from(formData.keys());
 
-        for (let [key, value] of formData.entries()) {
-            if (value) {
-                answeredQuestions++;
-            }
-        }
-
-        if (answeredQuestions < totalQuestions) {
-            alert("กรุณาตอบคำถามให้ครบทุกข้อก่อนส่งแบบฟอร์ม!");
+        if (answers.length < totalQuestions) {
+            showPopup("กรุณาตอบทุกคำถามก่อนส่งแบบฟอร์ม!");
             return;
         }
 
