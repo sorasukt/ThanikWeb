@@ -8,111 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: "Noto Sans Thai", sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2 {
-            text-align: center;
-            color: #444;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            margin: 20px 0 10px;
-        }
-
-        label {
-            display: block;
-            margin: 10px 0;
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            padding: 10px 0;
-            font-size: 1.2rem;
-            color: #fff;
-            background-color: #4caf50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        #result {
-            display: none;
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fffae6;
-            border: 1px solid #ffe58f;
-            border-radius: 5px;
-        }
-
-        #resultText {
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .error-popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            border: 1px solid #f44336;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            z-index: 1000;
-            text-align: center;
-        }
-
-        .error-popup button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            color: #fff;
-            background-color: #f44336;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .error-popup button:hover {
-            background-color: #e53935;
-        }
-    </style>
+    <!-- ไฟล์ CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>แบบทดสอบเลือกคณะ</h1>
         <form id="quizForm">
+            <!-- คำถาม 1 -->
             <h2>คำถาม 1: คุณสนใจการทำงานในลักษณะใดมากที่สุด?</h2>
             <label><input type="radio" name="q1" value="1"> การแก้ปัญหาด้านเทคนิคและออกแบบระบบ</label>
             <label><input type="radio" name="q1" value="2"> การดูแลรักษาคนไข้หรือสัตว์ที่เจ็บป่วย</label>
@@ -120,6 +23,7 @@
             <label><input type="radio" name="q1" value="4"> การศึกษาพฤติกรรมมนุษย์ ประวัติศาสตร์ หรือวัฒนธรรม</label>
             <label><input type="radio" name="q1" value="5"> การทดลองในห้องแล็บเพื่อค้นพบสิ่งใหม่ทางวิทยาศาสตร์</label>
 
+            <!-- คำถาม 2 -->
             <h2>คำถาม 2: คุณชอบทำงานในสถานการณ์แบบไหน?</h2>
             <label><input type="radio" name="q2" value="1"> สถานการณ์ที่ต้องใช้ความคิดสร้างสรรค์เพื่อออกแบบงานศิลป์หรือสื่อ</label>
             <label><input type="radio" name="q2" value="2"> สถานการณ์ที่ต้องช่วยเหลือผู้อื่นโดยตรง</label>
@@ -127,6 +31,7 @@
             <label><input type="radio" name="q2" value="4"> สถานการณ์ที่ต้องเผชิญหน้ากับความท้าทายทางกฎหมายหรือสังคม</label>
             <label><input type="radio" name="q2" value="5"> สถานการณ์ที่เกี่ยวข้องกับการทำงานในฟาร์มหรือพัฒนาผลผลิต</label>
 
+            <!-- คำถาม 3 -->
             <h2>คำถาม 3: หากคุณต้องเรียนรู้เรื่องใหม่ คุณชอบเนื้อหาแบบใดมากที่สุด?</h2>
             <label><input type="radio" name="q3" value="1"> วิทยาศาสตร์ เทคโนโลยี หรือการคำนวณ</label>
             <label><input type="radio" name="q3" value="2"> ประวัติศาสตร์ วัฒนธรรม หรือภาษา</label>
@@ -134,19 +39,21 @@
             <label><input type="radio" name="q3" value="4"> การออกแบบ การเขียน หรือการแสดง</label>
             <label><input type="radio" name="q3" value="5"> การดูแลชีวิตคนหรือสัตว์</label>
 
-            <h2>คำถาม 4: หากคุณมีเวลาว่างในวันหยุดสุดสัปดาห์ คุณอยากทำกิจกรรมใดมากที่สุด?</h2>
-            <label><input type="radio" name="q4" value="1"> อ่านหนังสือเกี่ยวกับเทคโนโลยีหรือนวัตกรรม</label>
-            <label><input type="radio" name="q4" value="2"> ไปออกกำลังกายหรือดูแลสุขภาพของตัวเอง</label>
-            <label><input type="radio" name="q4" value="3"> เข้าร่วมกิจกรรมสร้างสรรค์ เช่น วาดภาพหรือออกแบบ</label>
-            <label><input type="radio" name="q4" value="4"> เข้าร่วมกิจกรรมอาสาสมัครช่วยเหลือสังคม</label>
-            <label><input type="radio" name="q4" value="5"> ทำงานพิเศษหรือขายของเพื่อหารายได้</label>
+            <!-- คำถาม 4 -->
+            <h2>คำถาม 4: คุณมักใช้เวลาว่างกับกิจกรรมใด?</h2>
+            <label><input type="radio" name="q4" value="1"> การเล่นเกมหรือแก้ไขปัญหาผ่านการเขียนโปรแกรม</label>
+            <label><input type="radio" name="q4" value="2"> การอ่านหนังสือหรือบทความเกี่ยวกับประวัติศาสตร์และวัฒนธรรม</label>
+            <label><input type="radio" name="q4" value="3"> การจัดกิจกรรมกับเพื่อนหรือบริหารโปรเจคเล็กๆ</label>
+            <label><input type="radio" name="q4" value="4"> การสร้างงานศิลป์หรือฝึกทักษะการเขียน</label>
+            <label><input type="radio" name="q4" value="5"> การช่วยเหลือสัตว์หรือปลูกต้นไม้</label>
 
-            <h2>คำถาม 5: หากคุณสามารถเลือกทำโปรเจกต์ในโรงเรียนได้ 1 โปรเจกต์ คุณจะเลือกทำโปรเจกต์แบบใด?</h2>
-            <label><input type="radio" name="q5" value="1"> การออกแบบและสร้างหุ่นยนต์หรือโมเดล 3 มิติ</label>
-            <label><input type="radio" name="q5" value="2"> การวิจัยเกี่ยวกับการรักษาโรคหรือสุขภาพ</label>
-            <label><input type="radio" name="q5" value="3"> การวางแผนและจัดการงานกิจกรรมขนาดใหญ่</label>
-            <label><input type="radio" name="q5" value="4"> การเขียนบทความหรือทำการศึกษาเชิงลึกเกี่ยวกับสังคม</label>
-            <label><input type="radio" name="q5" value="5"> การทดลองเกี่ยวกับพืช สัตว์ หรือทรัพยากรธรรมชาติ</label>
+            <!-- คำถาม 5 -->
+            <h2>คำถาม 5: ถ้าคุณต้องเลือกสภาพแวดล้อมการทำงาน คุณจะเลือกแบบใด?</h2>
+            <label><input type="radio" name="q5" value="1"> ออฟฟิศที่ทันสมัยและเน้นการทำงานร่วมกัน</label>
+            <label><input type="radio" name="q5" value="2"> โรงพยาบาลหรือสถานที่ดูแลผู้ป่วย</label>
+            <label><input type="radio" name="q5" value="3"> ห้องประชุมที่ต้องตัดสินใจสำคัญ</label>
+            <label><input type="radio" name="q5" value="4"> ห้องเรียนหรือสถานที่วิจัยข้อมูล</label>
+            <label><input type="radio" name="q5" value="5"> ห้องแล็บวิทยาศาสตร์หรือฟาร์มการเกษตร</label>
 
             <button type="submit">ดูผลลัพธ์</button>
         </form>
@@ -162,40 +69,7 @@
         <button onclick="closePopup()">ปิด</button>
     </div>
 
-    <script>
-        const form = document.getElementById('quizForm');
-        const result = document.getElementById('result');
-        const resultText = document.getElementById('resultText');
-        const errorPopup = document.getElementById('errorPopup');
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const answers = new FormData(form);
-            let isComplete = true;
-
-            // ตรวจสอบว่าตอบครบทุกคำถามหรือไม่
-            for (let [key, value] of answers.entries()) {
-                if (!value) {
-                    isComplete = false;
-                    break;
-                }
-            }
-
-            if (isComplete) {
-                result.style.display = 'block';
-                resultText.textContent = 'คุณได้ทำแบบสอบถามเรียบร้อยแล้ว!';
-            } else {
-                showPopup();
-            }
-        });
-
-        function showPopup() {
-            errorPopup.style.display = 'block';
-        }
-
-        function closePopup() {
-            errorPopup.style.display = 'none';
-        }
-    </script>
+    <!-- ไฟล์ JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
